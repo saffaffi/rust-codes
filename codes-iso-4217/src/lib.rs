@@ -17,9 +17,9 @@ to all symbols.
 # Example
 
 ```rust
-use codes_iso_4217::{CurrencyCode, ISO_4217};
+use codes_iso_4217::{Currency, ISO_4217};
 
-let code = CurrencyCode::BZD;
+let code = BZD;
 
 assert_eq!(code.alpha_code(), "BZD");
 assert_eq!(code.numeric_code(), Some(84));
@@ -49,16 +49,16 @@ assert_eq!(ISO_4217.title(), "Currency codes");
 
 # Features
 
-By default only the `serde` feature is enabled, the [CurrencyCode::alpha_code] and
-[CurrencyCode::numeric_code] methods cannot be excluded.
+By default only the `serde` feature is enabled, the [Currency::alpha_code] and
+[Currency::numeric_code] methods cannot be excluded.
 
-* `serde` - Enables serialization of the [CurrencyCode] type.
-* `currency_name` - Adds the [CurrencyCode::currency_name] method.
-* `country_name` - Adds the [CurrencyCode::country_name] method.
-* `monetary_units` - Adds the [CurrencyCode::monetary_units] method.
-* `is_fund` - Adds the [CurrencyCode::is_fund] method.
-* `historical_codes` - Adds the [CurrencyCode::is_historical] and [CurrencyCode::withdrawal_date] methods.
-* `symbols` - Adds the [CurrencyCode::currency_symbol_str] and [CurrencyCode::currency_symbol_code_points] methods.
+* `serde` - Enables serialization of the [Currency] type.
+* `currency_name` - Adds the [Currency::currency_name] method.
+* `country_name` - Adds the [Currency::country_name] method.
+* `monetary_units` - Adds the [Currency::monetary_units] method.
+* `is_fund` - Adds the [Currency::is_fund] method.
+* `historical_codes` - Adds the [Currency::is_historical] and [Currency::withdrawal_date] methods.
+* `symbols` - Adds the [Currency::currency_symbol_str] and [Currency::currency_symbol_code_points] methods.
 
 */
 
