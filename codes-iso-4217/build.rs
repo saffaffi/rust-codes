@@ -27,7 +27,7 @@ struct Data {
     historical_file_date: String,
 }
 
-const TYPE_NAME: &str = "Currency";
+const TYPE_NAME: &str = "CurrencyCode";
 
 fn main() -> Result<(), Box<dyn Error>> {
     process(
