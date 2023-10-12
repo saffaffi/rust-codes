@@ -27,6 +27,9 @@ pub const ISO_4217: Standard = Standard::new_with_long_ref(
 
 /// Trait implemented by each currency.
 pub trait {{ type_name }} {{ "{" }}
+    /// Get a singleton instance of this currency.
+    fn get_concrete() -> &'static Self where Self: Sized;
+
     /// The alphabetic code is based on another ISO standard, ISO 3166, which lists the codes for
     /// country names. The first two letters of the ISO 4217 three-letter code are the same as the
     /// code for the country name, and, where possible, the third letter corresponds to the first
@@ -139,6 +142,8 @@ pub const {{ id }}: &{{ id | capitalize }} = &{{ id | capitalize }}(PhantomData)
 pub struct {{ id | capitalize }}(PhantomData<()>);
 
 impl {{ type_name }} for {{ id | capitalize }} {{ "{" }}
+    fn get_concrete() -> &'static Self where Self: Sized {{ "{" }} {{ id }} {{ "}" }}
+
     fn alpha_code(&self) -> &'static str {{ "{" }} "{{ id }}" {{ "}" }}
     fn numeric_code(&self) -> Option<u16> {{ "{" }} {% if codes[id].numeric_code %}Some({{ codes[id].numeric_code }}){% else %}None{% endif %} {{ "}" }}
     #[cfg(feature = "currency_name")]
